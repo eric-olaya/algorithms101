@@ -46,17 +46,30 @@ public class DynamicArray<String> {
     // Try implementing delete, isEmpty, and Contains on your own.
     // You can find the solution at the bottom
 
-    /*
+
     public void delete(int index) {
+        //we don't have to physically delete each element
+        // copy element to the right and assign to current element
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data [i+1];
+        }
+        data[size-1] = null;
+        size--;
     }
 
     public boolean isEmpty() {
-
+        return size == 0;
     }
 
     public boolean Contains(String value) {
+        for (int i = 0; i < size; i++) {
+            if (data[i] == value) {
+                return true;
+            }
+        }
+        return false;
     }
-    */
+
 
     private void resize() {
         Object[] newData = new Object[initialCapacity * 2];
@@ -89,30 +102,30 @@ public class DynamicArray<String> {
         size++;
     }
 
-    public void delete(int index) {
-        // Copy down
-        for (int j = index; j < size - 1; j++) {
-            data[j] = data[j + 1];
-        }
-
-        // Clear last element of array
-        data[size - 1] = null;
-
-        size--;
-    }
-
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
-    public boolean Contains(String value) {
-        for (int i = 0; i <= size -  1; i++) {
-            String currentValue = (String)data[i];
-            if (currentValue.equals(value)) {
-                return true;
-            }
-        }
-        return false;
-    }
+//    public void delete(int index) {
+//        // Copy down
+//        for (int j = index; j < size - 1; j++) {
+//            data[j] = data[j + 1];
+//        }
+//
+//        // Clear last element of array
+//        data[size - 1] = null;
+//
+//        size--;
+//    }
+//
+//    public boolean isEmpty() {
+//        return size == 0;
+//    }
+//
+//    public boolean Contains(String value) {
+//        for (int i = 0; i <= size -  1; i++) {
+//            String currentValue = (String)data[i];
+//            if (currentValue.equals(value)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
 }
